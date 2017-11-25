@@ -1,0 +1,18 @@
+﻿{
+  {
+    "outputFileName": "wwwroot/css/all.min.css",
+    "inputFiles": [
+      "bower_components/bootstrap/dist/css/bootstrap.css",
+      "wwwroot/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/bootstrap.css",
+    "inputFiles": [
+      "bower_components/bootstrap/dist/css/bootstrap.css"
+    ],
+    "minify": {
+      "enabled": false
+    }
+  }
+}
