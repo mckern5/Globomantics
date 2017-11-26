@@ -38,7 +38,8 @@ namespace Globomantics.Controllers
         /// <returns>Proposal details of a conference</returns>
         public async Task<IActionResult> Index(int conferenceId)
         {
-            ViewBag.Title = $"Proposals for the selected conference";
+            ViewBag.Title = "Proposals for the selected conference";
+            ViewBag.ConferenceId = conferenceId;
             return View(await this._service.GetAll(conferenceId).ConfigureAwait(false));
         }
 
@@ -46,12 +47,12 @@ namespace Globomantics.Controllers
         /// Gets the add view of a proposal.
         /// </summary>
         /// <returns>Add view of a proposal</returns>
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(int conferenceId)
         {
             ViewBag.Title = "Add a Proposal";
             return await Task.Run(() =>
             {
-                return View(new ProposalModel());
+                return View(new ProposalModel() { ConferenceId = conferenceId });
             }).ConfigureAwait(false);
         }
 
