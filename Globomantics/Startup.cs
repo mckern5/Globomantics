@@ -1,7 +1,6 @@
 ﻿using Globomantics.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Globomantics
@@ -27,10 +26,10 @@ namespace Globomantics
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc(route => route.MapRoute(
+                    name: "default",
+                    template: "{controller=Conference}/{Action=Index}/{id?}"
+                ));
         }
     }
 }
