@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Shared.Models.ConferenceModel>
-
 <div class="row">
     <div class="col-md-10 col-md-offset-2">
         <table class="table">
@@ -10,12 +9,16 @@
                 <th>Attendees</th>
                 <th>Actions</th>
             </tr>
-            @Html.DisplayForModel()        
+            @Html.DisplayForModel()
         </table>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        @*'Statistics' is the name of the View Component that has to be invoked, it will call the InvokeAsync method of the component with the provided
+        parameters which in this case is the caption.*@
+        @await Component.InvokeAsync("Statistics", new { caption = "Statistics" }).ConfigureAwait(false);
+    </div>
     <div class="col-md-4">
         <a asp-action="Add">Add</a>
     </div>
