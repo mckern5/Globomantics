@@ -33,16 +33,16 @@ namespace Globomantics.WebApi.Service
             };
         }
 
-        public async Task Add(ConferenceModel model)
+        public async Task<ConferenceModel> Add(ConferenceModel model)
         {
             if (model == null)
             {
-                return;
+                return null;
             }
 
             model.Id = this._conferences.Count + 1;
             this._conferences.Add(model);
-            await Task.FromResult<Task>(null).ConfigureAwait(false);
+            return await Task.FromResult<ConferenceModel>(model).ConfigureAwait(false);
         }
 
         public async Task<IEnumerable<ConferenceModel>> GetAll()

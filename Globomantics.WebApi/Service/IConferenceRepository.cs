@@ -12,6 +12,6 @@ namespace Globomantics.WebApi.Service
 
         Task<StatisticsModel> GetStatistics();
 
-        Task Add(ConferenceModel model);
+        Task<ConferenceModel> Add(ConferenceModel model);
     }
 }

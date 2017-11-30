@@ -37,18 +37,18 @@ namespace Globomantics.WebApi.Service
             };
         }
 
-        public async Task Add(ProposalModel model)
+        public async Task<ProposalModel> Add(ProposalModel model)
         {
-            await Task.Run(() =>
+            return await Task.Run(() =>
             {
                 if (model == null)
                 {
-                    return;
+                    return null;
                 }
 
                 model.Id = this._proposals.Count + 1;
                 this._proposals.Add(model);
-
+                return model;
             }).ConfigureAwait(false);
         }
 
