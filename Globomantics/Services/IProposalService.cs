@@ -6,7 +6,7 @@ namespace Globomantics.Services
 {
     public interface IProposalService
     {
-        Task Add(ProposalModel model);
+        Task<ProposalModel> Add(ProposalModel model);
 
         Task<IEnumerable<ProposalModel>> GetAll(int conferenceId);
 

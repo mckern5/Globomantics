@@ -23,8 +23,8 @@ namespace Globomantics
             services.AddMvc();
 
             // Configures DI middleware.
-            services.AddSingleton<IConferenceService, ConferenceMemoryService>();
-            services.AddSingleton<IProposalService, ProposalMemoryService>();
+            services.AddSingleton<IConferenceService, ConferenceApiService>();
+            services.AddSingleton<IProposalService, ProposalApiService>();
 
             // Configures app settings to be used as a service.
             services.Configure<GlobomanticsOptions>(this._configuration.GetSection("Globomantics"));
