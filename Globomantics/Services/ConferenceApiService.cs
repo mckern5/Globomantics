@@ -28,7 +28,7 @@ namespace Globomantics.Services
         {
             return await Task.Run(async () =>
             {
-                HttpResponseMessage message = await this._client.GetAsync(new Uri("v1/Conference")).ConfigureAwait(false);
+                HttpResponseMessage message = await this._client.GetAsync(new Uri("v1/Conference", UriKind.Relative)).ConfigureAwait(false);
                 return await message.Content.ReadAsAsync<IEnumerable<ConferenceModel>>().ConfigureAwait(false);
             }).ConfigureAwait(false);
         }
@@ -46,7 +46,7 @@ namespace Globomantics.Services
         {
             return await Task.Run(async () =>
             {
-                HttpResponseMessage message = await this._client.GetAsync(new Uri($"v1/Conference/GetStatistics")).ConfigureAwait(false);
+                HttpResponseMessage message = await this._client.GetAsync(new Uri($"v1/Statistics")).ConfigureAwait(false);
                 return await message.Content.ReadAsAsync<StatisticsModel>();
             }).ConfigureAwait(false);
         }

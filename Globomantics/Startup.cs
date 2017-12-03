@@ -1,4 +1,6 @@
-﻿using Globomantics.Services;
+﻿using System;
+using System.Net.Http;
+using Globomantics.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +27,7 @@ namespace Globomantics
             // Configures DI middleware.
             services.AddSingleton<IConferenceService, ConferenceApiService>();
             services.AddSingleton<IProposalService, ProposalApiService>();
+            services.AddSingleton(x => new HttpClient() { BaseAddress = new Uri("http://localhost:50810") });
 
             // Configures app settings to be used as a service.
             services.Configure<GlobomanticsOptions>(this._configuration.GetSection("Globomantics"));

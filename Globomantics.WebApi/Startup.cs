@@ -14,6 +14,7 @@ namespace Globomantics.WebApi
             services.AddSingleton<IConferenceRepository, ConferenceMemoryRepository>();
             services.AddSingleton<IProposalRepository, ProposalMemoryRepository>();
             services.AddSingleton<IStatisticsMemoryRepository, StatisticsMemoryRepository>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

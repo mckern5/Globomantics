@@ -36,14 +36,5 @@ namespace Globomantics.WebApi.Controllers
                 return model != null ? await Task.FromResult<IActionResult>(new ObjectResult(model)) : NotFound(conference);
             });
         }
-
-        [HttpGet]
-        public async Task<StatisticsModel> GetStatistics()
-        {
-            return await Task.Run(async () =>
-            {
-                return await this._repository.GetStatistics().ConfigureAwait(false);
-            }).ConfigureAwait(false);
-        }
     }
 }
