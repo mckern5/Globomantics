@@ -7,6 +7,7 @@ using Shared.Models;
 
 namespace Globomantics.WebApi.Controllers
 {
+    [Route("v1/[controller]")]
     public class ConferenceController : Controller
     {
         private readonly IConferenceRepository _repository;
